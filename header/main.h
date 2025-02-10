@@ -12,7 +12,7 @@
 #include <cmath>
 
 using namespace std;
-
-
+ 
+extern void promptUserToPressEnterToContinue();
 
 #endif // MAIN_H
