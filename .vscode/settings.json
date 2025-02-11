@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp",
+        "*.gitattributes": "cpp",
+        "cmath": "cpp"
     }
 }
