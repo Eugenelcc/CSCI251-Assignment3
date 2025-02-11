@@ -19,9 +19,9 @@ class Line2D{
     Line2D();
     
     //getter
-    Point2D getPt1();
-    Point2D getPt2();
-    double getLength();
+    Point2D getPt1() const;
+    Point2D getPt2() const;
+    double getScalarValue() const;
     
     //setter
     void setPt1(Point2D pt1);
@@ -30,6 +30,8 @@ class Line2D{
     
     bool operator==(const Line2D &l2d) const;
    
+
+    friend ostream &operator<<(ostream &os, const Line2D &l2d);
 };
 
 #endif

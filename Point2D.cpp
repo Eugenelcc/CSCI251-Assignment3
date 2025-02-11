@@ -53,3 +53,13 @@ void Point2D::setY(int y){
 bool Point2D::operator==(const Point2D &p2d) const {
     return (x == p2d.x && y == p2d.y);
 }
+
+ostream &operator<<(ostream &os, Point2D &p2d)
+{
+  os << "[" << std::right << std::setfill(' ')
+     << std::setw(4) << p2d.getX() << ","
+     << std::setw(4) << p2d.getY() << "]   "
+     << std::left << std::setfill(' ')
+     << std::fixed << std::setprecision(3) << p2d.getScalarValue() ;
+  return os;
+}

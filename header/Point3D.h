@@ -33,6 +33,10 @@ class Point3D : public Point2D
 
 
     bool operator==(const Point3D &p3d) const;
+
+
+    friend ostream &operator<<(ostream &os,  Point3D &p3d);
+
 };
 
 #endif

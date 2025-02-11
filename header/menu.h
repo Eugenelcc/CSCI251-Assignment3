@@ -10,6 +10,10 @@
 #include <math.h>
 #include <cmath>
 
+#include "Point2D.h"
+#include "Point3D.h"
+#include "Line3D.h"
+#include "Line2D.h"
 
 using namespace std;
 
@@ -39,6 +43,7 @@ void P3Dsort();
 void L23Dsort();
 
 
+void printdata(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, string filterCriteria, string sortCriteria, string sortOrder);
 
 
 void readDataFromFile(const string &filename);

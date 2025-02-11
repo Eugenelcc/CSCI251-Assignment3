@@ -41,3 +41,14 @@ void Line3D::setPt2(Point3D pt2){
 bool Line3D::operator==(const Line3D &l3d) const {
     return (pt1 == l3d.pt1 && pt2 == l3d.pt2);
 }
+
+ostream &operator<<(ostream &os, Line3D L3D){
+    os << "[" << std::right << std::setfill(' ') << std::setw(4) << L3D.getPt1().getX() << ","
+    << std::setw(4) << L3D.getPt1().getY() << ","
+    << std::setw(4) << L3D.getPt1().getZ() << "]   ["
+    << std::setw(4) << L3D.getPt2().getX() << ","
+    << std::setw(4) << L3D.getPt2().getY() << ","
+    << std::setw(4) << L3D.getPt2().getZ() << "]   "
+    << std::left << std::setfill(' ') << std::fixed << std::setprecision(3) << L3D.getScalarValue() ;
+    return os;
+}

@@ -36,6 +36,7 @@ class Point2D{
     void setY(int y);
 
     bool operator==(const Point2D &p2d) const;
+    friend ostream &operator<<(ostream &os, Point2D &p2d);
 
 };
 

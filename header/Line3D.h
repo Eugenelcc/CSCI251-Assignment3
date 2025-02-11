@@ -3,8 +3,11 @@
 
 
 #include "menu.h"
+#include <iostream>
+#include <ostream>
 #include "Point3D.h"
 #include "Line2D.h"
+#include <iomanip>
 
 using namespace std; 
 
@@ -31,6 +34,10 @@ class Line3D : public Line2D{
 
 
     bool operator==(const Line3D &l3d) const;
+    
+    friend ostream &operator <<(ostream &os, Line3D L3D);
+
+
 };
 
 
