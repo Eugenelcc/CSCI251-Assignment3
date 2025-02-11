@@ -1,9 +1,12 @@
-#include "./header/menu.h"
-#include "./header/Line3D.h"
-#include "./header/Point3D.h"
+#include "Line3D.h"
+#include "Point3D.h"
 
 
-
+Line3D::Line3D(){
+    this->pt1 = Point3D();
+    this ->pt2 = Point3D();
+    setLength();
+}
 
 Line3D::Line3D(Point3D pt1 , Point3D pt2) {
     this->pt1 = pt1;
@@ -40,6 +43,11 @@ void Line3D::setPt2(Point3D pt2){
 
 bool Line3D::operator==(const Line3D &l3d) const {
     return (pt1 == l3d.pt1 && pt2 == l3d.pt2);
+}
+
+
+double Line3D::operator-(const Line3D &l3d) const {
+    return abs(length - l3d.length);
 }
 
 ostream &operator<<(ostream &os, Line3D L3D){

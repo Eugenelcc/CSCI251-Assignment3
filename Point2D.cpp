@@ -1,5 +1,5 @@
-#include "./header/menu.h"
-#include "./header/Point2D.h"
+ 
+#include "Point2D.h"
 
 
 Point2D::Point2D()
@@ -52,6 +52,10 @@ void Point2D::setY(int y){
 
 bool Point2D::operator==(const Point2D &p2d) const {
     return (x == p2d.x && y == p2d.y);
+}
+
+double Point2D::operator-(const Point2D &p2d) const {
+    return abs(distFrOrign - p2d.distFrOrign);
 }
 
 ostream &operator<<(ostream &os, Point2D &p2d)

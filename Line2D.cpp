@@ -1,6 +1,6 @@
-#include "./header/menu.h"
-#include "./header/Line2D.h"
-#include "./header/Point2D.h"
+
+#include "Line2D.h"
+#include "Point2D.h"
 
 
 Line2D::Line2D(){
@@ -46,6 +46,11 @@ void Line2D::setPt2(Point2D pt2){
 
 bool Line2D::operator==(const Line2D &l2d) const {
     return (pt1 == l2d.pt1 && pt2 == l2d.pt2);
+}
+
+
+double Line2D::operator-(const Line2D &l2d) const {
+    return abs(length - l2d.length);
 }
 
 

@@ -2,7 +2,7 @@
 #define LINE2D_H
 
 #include "Point2D.h"
-#include "menu.h"
+ 
 
 using namespace std;
 
@@ -29,6 +29,8 @@ class Line2D{
 
     
     bool operator==(const Line2D &l2d) const;
+
+    double operator-(const Line2D &l2d) const;
    
 
     friend ostream &operator<<(ostream &os, const Line2D &l2d);

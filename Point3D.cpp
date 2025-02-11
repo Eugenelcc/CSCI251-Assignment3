@@ -1,6 +1,5 @@
-#include "./header/menu.h"
-#include "./header/Point3D.h"
-#include "./header/Point2D.h"
+#include "Point3D.h"
+#include "Point2D.h"
 
 
 Point3D::Point3D() {
@@ -35,6 +34,11 @@ void Point3D::setZ(int z){
 
 bool Point3D::operator==(const Point3D &p3d) const {
     return (x == p3d.x && y == p3d.y);
+}
+
+
+double Point3D::operator-(const Point3D &p2d) const {
+    return abs(distFrOrign - p2d.distFrOrign);
 }
 
 ostream &operator<<(ostream &os,  Point3D &p3d)

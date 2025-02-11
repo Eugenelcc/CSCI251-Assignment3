@@ -1,8 +1,8 @@
-#include "./header/menu.h"
-#include "./header/Point2D.h"
-#include "./header/Point3D.h"
-#include "./header/Line2D.h"
-#include "./header/Line3D.h"
+#include "menu.h"
+#include "Point2D.h"
+#include "Point3D.h"
+#include "Line2D.h"
+#include "Line3D.h"
 #include <fstream>
 #include <iostream>
 #include <algorithm>
@@ -16,7 +16,7 @@ string filterCriteria = "Point2D";
 string sortCriteria = "x-ordinate";
 string sortOrder = "ASC";
 
-int userchoice;
+ 
 string filename;
 
 vector<Point2D> point2D_vect;
@@ -29,9 +29,19 @@ int main()
 
     while (true)
     {
+        string userinput;
         displaymenu();
-        cin >> userchoice;
-        cout << "UserChoice : " << userchoice << endl;
+        //cin >> userinput;
+        getline(cin, userinput);
+        int userchoice = 0;
+        //cout << "UserChoice : " << userchoice << endl;
+        try{
+            userchoice = stoi(userinput);
+        }
+        catch(...){
+            cout << "Invalid input. Please enter a number between 1 and 7." << endl;
+            continue;
+        }
 
         switch (userchoice)
         {
@@ -58,15 +68,16 @@ int main()
             break;
 
         case 6:
-            cout << "Store data" << endl;
+           
             storeDataToFile(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, sortCriteria, sortOrder);
             break;
         case 7:
-            cout << "Quit" << endl;
-            break;
+            cout << "Exiting program..." << endl;
+            return 0 ;
         default:
-            cout << "Invalid choice" << endl;
-            break;
+            cout << "Invalid input. Please enter a number between 1 and 7." << endl;
+            cin.clear();
+            continue;
         }
     }
 }
@@ -74,7 +85,7 @@ int main()
 void displaymenu()
 {
 
-    int userchoice;
+    
     cout << '\n'
          << divider << endl;
     cout << "Student ID: " << student_ID << endl;
@@ -93,6 +104,7 @@ void displaymenu()
     cout << divider << endl;
 
     cout << "Please enter your choice (1-7): ";
+     
 }
 
 // select filtering criteria
@@ -127,6 +139,7 @@ void spec_filt_criteria()
         sortCriteria = "Pt. 1";
         break;
     default:
+        cout << "Error: Invalid input. Please enter a valid option (a, b, c, d)." << endl;
         break;
     }
     cout << endl;
@@ -428,7 +441,7 @@ void promptUserToPressEnterToContinue()
 
     do
     {
-        cout << "Press <Enter> to return to the main menu...";
+        cout << "Press <Enter> to go back to the main menu..."; 
 
         getline(cin, userInput);
     } while (userInput.length() != 0);
@@ -449,19 +462,20 @@ vector<string> TokenizeString(string line)
 
 void ViewTheData(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, string filterCriteria, string sortCriteria, string sortOrder)
 {
+    cout << endl;
     cout << "[View data ... ]\n";
     cout << "filtering criteria: " << filterCriteria << endl;
     cout << "sorting criteria: " << sortCriteria << endl;
     cout << "sorting order: " << sortOrder << endl;
     cout << endl;
 
-    sortingData(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, sortCriteria, sortOrder); 
+    sortingData(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, sortCriteria, sortOrder);
     ListingDataTable(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, cout);
 }
 
 void sortingData(
-    vector<Point2D> &point2D_vect, vector<Point3D> &point3D_vect, 
-    vector<Line3D> &line3D_vect, vector<Line2D> &line2D_vect, const string &filterCriteria, const string & sortCriteria, const string &sortOrder)
+    vector<Point2D> &point2D_vect, vector<Point3D> &point3D_vect,
+    vector<Line3D> &line3D_vect, vector<Line2D> &line2D_vect, const string &filterCriteria, const string &sortCriteria, const string &sortOrder)
 {
     // Point2D
     if (filterCriteria == "Point2D")
@@ -731,20 +745,18 @@ void sortingData(
 }
 
 void ListingDataTable(
-    const vector<Point2D> &point2D_vect, 
-    const vector<Point3D> &point3D_vect, 
-    const vector<Line3D> &line3D_vect, 
-    const vector<Line2D> &line2D_vect, 
-    const string &filterCriteria, 
-    ostream& os)
-{   
+    const vector<Point2D> &point2D_vect,
+    const vector<Point3D> &point3D_vect,
+    const vector<Line3D> &line3D_vect,
+    const vector<Line2D> &line2D_vect,
+    const string &filterCriteria,
+    ostream &os)
+{
 
-    
- 
     // Point 2D
     if (filterCriteria == "Point2D")
     {
-         
+
         os << "    X    Y    Dist. Fr Origin" << endl;
         os << "- - - - - - - - - - - - - - - - -" << endl;
         if (point2D_vect.empty())
@@ -756,7 +768,6 @@ void ListingDataTable(
             for (auto p : point2D_vect)
             {
                 os << p << endl;
-                
             }
         }
     }
@@ -812,13 +823,11 @@ void ListingDataTable(
             }
         }
     }
-
-    
 }
 
 void storeDataToFile(
-    vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, 
-    vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, 
+    vector<Point2D> point2D_vect, vector<Point3D> point3D_vect,
+    vector<Line3D> line3D_vect, vector<Line2D> line2D_vect,
     string filterCriteria, string sortCriteria, string sortOrder)
 {
     cout << "Please enter filename :";
@@ -833,20 +842,24 @@ void storeDataToFile(
     {
         cout << "File opened successfully" << endl;
         cout << "Writing data to file..." << endl;
-        
+
         sortingData(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, sortCriteria, sortOrder);
         ListingDataTable(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, file);
 
-        if (filterCriteria == "Point2D") {
+        if (filterCriteria == "Point2D")
+        {
             cout << point2D_vect.size() << " records output successfully" << endl;
         }
-        else if (filterCriteria == "Point3D") {
+        else if (filterCriteria == "Point3D")
+        {
             cout << point3D_vect.size() << " records output successfully" << endl;
         }
-        else if (filterCriteria == "Line2D") {
+        else if (filterCriteria == "Line2D")
+        {
             cout << line2D_vect.size() << " records output successfully" << endl;
         }
-        else if (filterCriteria == "Line3D") {
+        else if (filterCriteria == "Line3D")
+        {
             cout << line3D_vect.size() << " records output successfully" << endl;
         }
 
