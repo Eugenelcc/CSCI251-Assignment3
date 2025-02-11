@@ -29,28 +29,42 @@ int main()
 
     while (true)
     {
-        string userinput;
-        displaymenu();
-        //cin >> userinput;
-        getline(cin, userinput);
+       displaymenu();
+
         int userchoice = 0;
-        //cout << "UserChoice : " << userchoice << endl;
-        try{
-            userchoice = stoi(userinput);
-        }
-        catch(...){
-            cout << "Invalid input. Please enter a number between 1 and 7." << endl;
-            continue;
+
+        string userinput;
+
+
+        cout << "Please enter your choice: ";
+
+        getline(cin, userinput); // Read the entire line
+
+
+        try {
+
+            userchoice = stoi(userinput); // Convert input to integer
+
         }
 
+        catch (...) {
+
+            cout << "Invalid input. Please enter a number between 1 and 7." << endl;
+
+            continue;
+
+        }
         switch (userchoice)
         {
         case 1:
 
-            cout << "Please enter filename :";
-            cin >> filename;
-            readDataFromFile(filename);
-            break;
+            cout << "Please enter filename: ";
+
+    getline(cin, filename); // Use getline to read the filename
+
+    readDataFromFile(filename);
+
+    break;
         case 2:
             spec_filt_criteria();
             break;
