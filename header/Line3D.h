@@ -21,6 +21,7 @@ class Line3D : public Line2D{
     void setLength();
 
     public:
+    Line3D();
     Line3D(Point3D pt1, Point3D pt2);
 
     //Getter 

@@ -43,10 +43,28 @@ void P3Dsort();
 void L23Dsort();
 
 
-void printdata(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, string filterCriteria, string sortCriteria, string sortOrder);
+void ViewTheData(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, string filterCriteria, string sortCriteria, string sortOrder);
 
+void sortingData(
+    vector<Point2D> &point2D_vect, vector<Point3D> &point3D_vect, 
+    vector<Line3D> &line3D_vect, vector<Line2D> &line2D_vect, 
+    const string &filterCriteria, const string &sortCriteria, const string &sortOrder);
+
+void ListingDataTable(const vector<Point2D> &point2D_vect, 
+    const vector<Point3D> &point3D_vect, 
+    const vector<Line3D> &line3D_vect, 
+    const vector<Line2D> &line2D_vect, 
+    const string &filterCriteria, 
+    ostream& os
+);
 
 void readDataFromFile(const string &filename);
+
+
+void storeDataToFile(
+    vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, 
+    vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, 
+    string filterCriteria, string sortCriteria, string sortOrder);
 
 vector<string> TokenizeString(string line);
 

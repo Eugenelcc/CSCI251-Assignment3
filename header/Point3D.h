@@ -24,6 +24,7 @@ class Point3D : public Point2D
     public:
     Point3D(int x , int y, int z);
     Point3D();
+ 
     
     //getter
     int getZ();
