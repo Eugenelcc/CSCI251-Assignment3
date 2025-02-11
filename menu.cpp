@@ -238,7 +238,7 @@ void P2Dsort()
         sortCriteria = "y-ordinate";
         break;
     case ('c'):
-        sortCriteria = "Dist";
+        sortCriteria = "Dist. Fr Origin value";
         break;
     default:
         break;
@@ -269,7 +269,7 @@ void P3Dsort()
         sortCriteria = "z-ordinate";
         break;
     case ('d'):
-        sortCriteria = "Dist";
+        sortCriteria = "Dist. Fr Origin value";
         break;
     default:
         break;
@@ -521,7 +521,7 @@ void sortingData(
                      { return a.getY() > b.getY(); });
             }
         }
-        else if (sortCriteria == "Dist")
+        else if (sortCriteria == "Dist. Fr Origin value")
         {
             if (sortOrder == "ASC")
             {
@@ -579,7 +579,7 @@ void sortingData(
                      { return a.getZ() > b.getZ(); });
             }
         }
-        else if (sortCriteria == "Dist")
+        else if (sortCriteria == "Dist. Fr Origin value")
         {
             if (sortOrder == "ASC")
             {
