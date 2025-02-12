@@ -170,22 +170,22 @@ void spec_sort_criteria()
     cout << endl;
     if (filterCriteria == "Point2D")
     {
-        cout << "Point2D Sort" << endl;
+        //cout << "Point2D Sort" << endl;
         P2Dsort();
     }
     else if (filterCriteria == "Point3D")
     {
-        cout << "Point3D Sort" << endl;
+        //cout << "Point3D Sort" << endl;
         P3Dsort();
     }
     else if (filterCriteria == "Line2D")
     {
-        cout << "Line2DSort" << endl;
+        //cout << "Line2DSort" << endl;
         L23Dsort();
     }
     else if (filterCriteria == "Line3D")
     {
-        cout << "Line3D Sort" << endl;
+        //cout << "Line3D Sort" << endl;
         L23Dsort();
     }
 
@@ -461,6 +461,7 @@ void promptUserToPressEnterToContinue()
 
     do
     {
+        cout << endl;
         cout << "Press <Enter> to go back to the main menu..."; 
 
         getline(cin, userInput);
@@ -483,7 +484,7 @@ vector<string> TokenizeString(string line)
 void ViewTheData(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vector<Line3D> line3D_vect, vector<Line2D> line2D_vect, string filterCriteria, string sortCriteria, string sortOrder)
 {
     cout << endl;
-    cout << "[View data ... ]\n";
+    cout << "[=== VIEW DATA ===]\n";
     cout << "filtering criteria: " << filterCriteria << endl;
     cout << "sorting criteria: " << sortCriteria << endl;
     cout << "sorting order: " << sortOrder << endl;
