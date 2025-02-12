@@ -168,12 +168,12 @@ void spec_sort_criteria()
     cout << endl;
     if (filterCriteria == "Point2D")
     {
-        cout << "Point2D SOrt" << endl;
+        cout << "Point2D Sort" << endl;
         P2Dsort();
     }
     else if (filterCriteria == "Point3D")
     {
-        cout << "Point3D SOrt" << endl;
+        cout << "Point3D Sort" << endl;
         P3Dsort();
     }
     else if (filterCriteria == "Line2D")
@@ -183,7 +183,7 @@ void spec_sort_criteria()
     }
     else if (filterCriteria == "Line3D")
     {
-        cout << "Line3D SOrt" << endl;
+        cout << "Line3D Sort" << endl;
         L23Dsort();
     }
 
