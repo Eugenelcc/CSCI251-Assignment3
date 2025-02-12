@@ -35,8 +35,7 @@ int main()
 
         string userinput;
 
-
-        cout << "Please enter your choice: ";
+ 
 
         getline(cin, userinput); // Read the entire line
 
@@ -161,6 +160,9 @@ void spec_filt_criteria()
     promptUserToPressEnterToContinue();
 }
 
+
+
+
 // select sorting criteria
 void spec_sort_criteria()
 {
@@ -276,6 +278,8 @@ void P3Dsort()
     }
 }
 
+
+
 // L2DSORT
 void L23Dsort()
 {
@@ -339,8 +343,10 @@ void readDataFromFile(const string &filename)
                 int y = stoi(tokens[1]);
 
                 Point2D p2d(x, y);
-
-                auto itr = find(point2D_vect.begin(), point2D_vect.end(), p2d);
+                
+                 
+                auto itr = find(point2D_vect.begin(), point2D_vect.end(), p2d); // point2d_vect =  {1,2} {2,3} {3,4} {7,2}  p2d = {1,2}
+                //cout << *itr << endl;
                 if (itr == point2D_vect.end())
                 {
                     point2D_vect.emplace_back(p2d);
@@ -450,7 +456,7 @@ void readDataFromFile(const string &filename)
 void promptUserToPressEnterToContinue()
 {
     // Clears any previous input from the input buffer
-    cin.ignore(1000, '\n');
+   
     string userInput = "";
 
     do
@@ -485,6 +491,8 @@ void ViewTheData(vector<Point2D> point2D_vect, vector<Point3D> point3D_vect, vec
 
     sortingData(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, sortCriteria, sortOrder);
     ListingDataTable(point2D_vect, point3D_vect, line3D_vect, line2D_vect, filterCriteria, cout);
+
+    promptUserToPressEnterToContinue();
 }
 
 void sortingData(
@@ -880,4 +888,12 @@ void storeDataToFile(
         cout << "Data written to file successfully!" << endl;
         promptUserToPressEnterToContinue();
     }
+}
+
+
+
+
+void testdis(){
+    Point2D myPointer2Deez;
+    cout << myPointer2Deez << endl;
 }
