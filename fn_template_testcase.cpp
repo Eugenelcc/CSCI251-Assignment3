@@ -1,5 +1,5 @@
 
-//g++ -std=c++11 Point2D.cpp Point3D.cpp Line2D.cpp Line3D.cpp fn_template_testcase.cpp -o fn_template_testcase.app
+// g++ Point2D.cpp Point3D.cpp Line2D.cpp Line3D.cpp fn_template_testcase.cpp
 
 #include <iostream>
 #include <utility>
@@ -9,12 +9,11 @@
 #include <algorithm>
 #include <typeinfo>
 
-
+#include "MyTemplates.h"
 #include "Point2D.h"
 #include "Point3D.h"
 #include "Line2D.h"
 #include "Line3D.h"
-#include "MyTemplates.h"
 
 using namespace std;
 
